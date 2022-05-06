@@ -1,0 +1,13 @@
+[package]
+name = "datafusion-wasi-proto"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tonic = "0.7.1"
+prost = "0.10.1"
+
+[build-dependencies]
+tonic-build = "0.7.1"

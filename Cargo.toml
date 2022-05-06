@@ -1,0 +1,7 @@
+[workspace]
+
+members = [
+	"datafusion-server",
+	"datafusion-client",
+	"datafusion-wasi-proto"
+]

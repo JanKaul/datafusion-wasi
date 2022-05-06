@@ -1,0 +1,17 @@
+[package]
+name = "datafusion-client"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tonic = "0.7.1"
+tokio = { version = "1.18.1" , features = ["rt-multi-thread"]}
+datafusion = {git = "https://github.com/apache/arrow-datafusion" , branch = "arrow2"}
+datafusion-proto = {git = "https://github.com/apache/arrow-datafusion" , branch = "arrow2"}
+ballista-core = {git = "https://github.com/apache/arrow-datafusion" , branch = "arrow2"}
+datafusion-wasi-proto = { path = "../datafusion-wasi-proto"}
+
+[build-dependencies]
+tonic-build = "0.7.1"
