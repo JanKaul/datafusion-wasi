@@ -13,5 +13,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .serve(addr)
         .await?;
 
+    println!("Datafusion server running on port 50051.");
+
     Ok(())
 }

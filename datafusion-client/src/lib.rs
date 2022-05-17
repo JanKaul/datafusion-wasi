@@ -10,9 +10,10 @@ use datafusion::arrow;
 use datafusion::arrow::io::flight::deserialize_schemas;
 use datafusion::field_util::SchemaExt;
 use datafusion::prelude::*;
-
 use datafusion::record_batch::RecordBatch;
+
 use prost::Message;
+use tonic::Request;
 
 pub async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let mut client = FlightServiceClient::connect("http://[::1]:50051").await?;
@@ -35,7 +36,7 @@ pub async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     proto_plan.try_encode(&mut buf)?;
 
-    let request = tonic::Request::new(Ticket { ticket: buf });
+    let request = Request::new(Ticket { ticket: buf });
 
     let mut stream = client.do_get(request).await?.into_inner();
 
